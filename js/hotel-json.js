@@ -1,33 +1,39 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
-  authDomain: "grocerylist-91956.firebaseapp.com",
-  databaseURL: "https://grocerylist-91956.firebaseio.com",
-  projectId: "grocerylist-91956",
-  storageBucket: "grocerylist-91956.appspot.com",
-  messagingSenderId: "813812426276",
-  appId: "1:813812426276:web:93e5897af12892ff78dab1",
-  measurementId: "G-VZ83BTR72T"
+  apiKey: 'AIzaSyC97jVCrGFzT9ITY3EQRY8AoQWl3YEXueM',
+  authDomain: 'csci225-fba7e.firebaseapp.com',
+  projectId: 'csci225-fba7e',
+  storageBucket: 'csci225-fba7e.appspot.com',
+  messagingSenderId: '1090943276775',
+  appId: '1:1090943276775:web:fd8f938f62c14414143442',
+  measurementId: 'G-CC57Y5HC9K',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-/* object examples 
+//object examples
 var testJson = {};
-testJson["lastname"] = "zhang";
-testJson["location"] = "aiken";
+testJson['lastname'] = 'zhang';
+testJson['location'] = 'aiken';
 console.log(testJson);
-*/
 
 // enter data in
-$("input[type='button']").click(function(e) {
+$("input[type='button']").click(function (e) {
   //get the value of form
-  
-  
+  const inputdata = $('form').serializeArray();
+  console.log(inputdata);
+
   /* save the data to database */
-
-
+  var inputJson = {};
+  for(var i=0;i<inputdata.length; i++){
+    var n = inputdata[i]["name"];
+    var v = inputdata[i]["value"];
+    console.log(n + ' ' + v);
+  inputJson[n] = v;
+  
+}
+  firebase.firestore().collection('hotelreservation').add(inputJson);
 
   /* clear the entry */
-  $("form")[0].reset();
+  $('form')[0].reset();
 });
 
 /* array example
@@ -39,7 +45,7 @@ array1.forEach(element => console.log(element));
 
 firebase
   .firestore()
-  .collection("hoteldata")
+  .collection("hotelreservation")
   .onSnapshot(querySnapshot => {
     console.log(querySnapshot.size);
     querySnapshot.forEach(doc => {
@@ -48,3 +54,4 @@ firebase
       console.log(doc.data().checkout);
     });
   });
+
