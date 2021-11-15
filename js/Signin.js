@@ -1,12 +1,11 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
-  authDomain: "grocerylist-91956.firebaseapp.com",
-  databaseURL: "https://grocerylist-91956.firebaseio.com",
-  projectId: "grocerylist-91956",
-  storageBucket: "grocerylist-91956.appspot.com",
-  messagingSenderId: "813812426276",
-  appId: "1:813812426276:web:93e5897af12892ff78dab1",
-  measurementId: "G-VZ83BTR72T"
+  apiKey: 'AIzaSyC97jVCrGFzT9ITY3EQRY8AoQWl3YEXueM',
+  authDomain: 'csci225-fba7e.firebaseapp.com',
+  projectId: 'csci225-fba7e',
+  storageBucket: 'csci225-fba7e.appspot.com',
+  messagingSenderId: '1090943276775',
+  appId: '1:1090943276775:web:fd8f938f62c14414143442',
+  measurementId: 'G-CC57Y5HC9K',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -16,8 +15,9 @@ $("#Login").submit(function(e) {
   e.preventDefault();
   // get the user name and password from form
   // You need to change this. 
-  var email = "yilianz4@gmail.com";
-  var password = "ddsgagafda";
+  var email =  $("#signup-form input[name='username']").val();
+  console.log('it worked');
+  var password = $("#signup-form input[name='password']").val();
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
