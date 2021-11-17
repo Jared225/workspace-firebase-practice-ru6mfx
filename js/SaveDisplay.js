@@ -63,22 +63,25 @@ firebase
       console.log(doc.data().comm);
 
       //switch to implement the table below
-      if (doc.data.choice == 'A'){
+      if (doc.data().choice == 'A'){
         a1 += 1;
-      } else if (doc.data.choice =='B'){
+      } else if (doc.data().choice =='B'){
         a2 += 1;
-      }else if (doc.data.choice == 'C'){
+      }else if (doc.data().choice == 'C'){
         a3 += 1;
-      }else if (doc.data.choice == 'D'){
+      }else if (doc.data().choice == 'D'){
         a4 += 1;
-      }else if (doc.data.choice == 'E'){
+      }else if (doc.data().choice == 'E'){
         a5 += 1;
       }
 
-      
-
 
     });
+    $('#ans1').text(a1);
+    $('#ans2').text(a2);
+    $('#ans3').text(a3);
+    $('#ans4').text(a4);
+    $('#ans5').text(a5);
   });
 
 // update the result in table
