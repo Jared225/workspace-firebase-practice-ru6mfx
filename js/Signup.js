@@ -20,11 +20,7 @@ $('#signup-form').submit(function (e) {
   var password = $("#signup-form input[name='password']").val();
   console.log('password you typed is ' + password);
   var repassword = $("#signup-form input[name='cpassword']").val();
-  if (password == cpassword) {
-    console.log('they match');
-  } else {
-    alert;
-  }
+ 
 
   // create a user with email address and password
   firebase

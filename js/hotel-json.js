@@ -11,9 +11,28 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 //object examples
 var testJson = {};
-testJson['lastname'] = 'zhang';
+testJson['lastname'] = 'Jared';
 testJson['location'] = 'aiken';
 console.log(testJson);
+
+console.log('here');
+firebase.auth().onAuthStateChanged((user) => {
+if (user) {
+  console.log(user.email);
+  // ...
+} else {
+  // User is signed out
+ console.log('no user');
+}
+});
+$("signout").click(function(){
+firebase.auth().signOut().then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+});
+
 
 // enter data in
 $("input[type='button']").click(function (e) {
